@@ -1,0 +1,1 @@
+zig run benchmark.zig -O ReleaseFast
