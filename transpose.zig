@@ -3,6 +3,7 @@ const common = @import("common.zig");
 
 pub fn allocMatmul(comptime n: usize, allocator: std.mem.Allocator, a: []const f32, b: []const f32) error{OutOfMemory}![]const f32 {
     var c = try allocator.alloc(f32, n * n);
+    @memset(c, 0);
 
     const b_T = try common.allocTranspose(n, allocator, b);
     defer allocator.free(b_T);
